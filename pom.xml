@@ -1,0 +1,27 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.javamoney.shelter</groupId>
+	<artifactId>javamoney-shelter</artifactId>
+	<version>0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>JavaMoney Shelter</name>
+	<description>A shelter for new ideas and modules to be adopted, e.g. via Adopt-a-JSR </description>
+	<parent>
+		<groupId>org.javamoney</groupId>
+		<artifactId>javamoney-parent</artifactId>
+		<version>0.4-SNAPSHOT</version>
+	</parent>
+	<url>http://javamoney.github.io/shelter.html</url>
+	<inceptionYear>2013</inceptionYear>
+	<organization>
+		<name>JavaMoney</name>
+		<url>http://javamoney.org</url>
+	</organization>
+	<licenses>
+		<license>
+			<name>Apache License version 2.0</name>
+			<url>LICENSE</url>
+		</license>
+	</licenses>
+</project>
