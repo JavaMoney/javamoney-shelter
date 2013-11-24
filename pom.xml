@@ -14,14 +14,4 @@
 	</parent>
 	<url>http://javamoney.github.io/shelter.html</url>
 	<inceptionYear>2013</inceptionYear>
-	<organization>
-		<name>JavaMoney</name>
-		<url>http://javamoney.org</url>
-	</organization>
-	<licenses>
-		<license>
-			<name>Apache License version 2.0</name>
-			<url>LICENSE</url>
-		</license>
-	</licenses>
 </project>
