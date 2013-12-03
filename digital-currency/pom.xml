@@ -5,7 +5,7 @@
     <artifactId>javamoney-shelter</artifactId>
     <version>0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>digital-currency</artifactId>
+  <artifactId>javamoney-digital-currency</artifactId>
   <packaging>pom</packaging>
   <name>JavaMoney Digital Currencies</name>
   <description>Digital Currency Support</description>

@@ -26,7 +26,6 @@
 	</properties>
 
 	<modules>
-		<module>bitcoin</module>
 		<module>digital-currency</module>
 	</modules>
 </project>

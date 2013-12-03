@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.javamoney.shelter</groupId>
-		<artifactId>javamoney-shelter</artifactId>
+		<artifactId>javamoney-digital-currency</artifactId>
 		<version>0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>javamoney-bitcoin</artifactId>
