@@ -29,9 +29,9 @@ public class MtGoxV2ConversionDemo {
     public static void main(String... arg) throws MonetaryException {
     	CurrencyUnit btc = BTCCurrency.of();
     	System.out.println("Currency: " + btc);
-    	MtGoxV2ConversionProvider provider = new MtGoxV2ConversionProvider("USD");
-    	//MtGoxV2ConversionProvider provider = new MtGoxV2ConversionProvider();
-        //provider.loadRate("USD", true);
+    	//MtGoxV2ConversionProvider provider = new MtGoxV2ConversionProvider("USD");
+    	MtGoxV2ConversionProvider provider = new MtGoxV2ConversionProvider();
+        provider.loadRate("USD", true);
         ExchangeRate rate = provider.getExchangeRate(MoneyCurrency.of("USD"), btc);
         System.out.println("Rate: " + rate);
         
