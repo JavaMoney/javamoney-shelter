@@ -14,8 +14,6 @@
  */
 package org.javamoney.shelter.bitcoin.provider;
 
-import static org.javamoney.shelter.bitcoin.provider.BTCCurrency.BTC_NAMESPACE;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.Locale;
@@ -172,7 +170,7 @@ public class MtGoxV2ConversionProvider implements ConversionProvider {
 			}
 	        if (verbose) System.out.println( "display_short : " +lastNode.path("display_short").getTextValue());
     	} else {
-    		throw new UnknownCurrencyException(BTC_NAMESPACE, curCode);
+    		throw new UnknownCurrencyException("Currency not supported", curCode);
     	}
     }
     
