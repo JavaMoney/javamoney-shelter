@@ -19,6 +19,7 @@ import javax.money.MonetaryException;
 
 import org.javamoney.convert.ExchangeRate;
 import org.javamoney.moneta.MoneyCurrency;
+import org.javamoney.shelter.bitcoin.BTCCurrency;
 
 
 /**
@@ -28,7 +29,6 @@ import org.javamoney.moneta.MoneyCurrency;
 public class MtGoxV2ConversionDemo {
     public static void main(String... arg) throws MonetaryException {
     	CurrencyUnit btc = BTCCurrency.of();
-    	CurrencyUnit btc2 = MoneyCurrency.of("BTC");
     	System.out.println("Currency: " + btc);
     	//MtGoxV2ConversionProvider provider = new MtGoxV2ConversionProvider("USD");
     	MtGoxV2ConversionProvider provider = new MtGoxV2ConversionProvider();

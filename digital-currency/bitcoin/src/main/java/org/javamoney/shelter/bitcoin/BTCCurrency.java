@@ -12,7 +12,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.javamoney.shelter.bitcoin.provider;
+package org.javamoney.shelter.bitcoin;
 
 import java.io.Serializable;
 import java.util.Currency;
@@ -131,6 +131,7 @@ public final class BTCCurrency implements CurrencyUnit, Displayable, Serializabl
 
 	/**
 	 * Get the namespace of this {@link CurrencyUnit}.
+	 * @deprecated namespace not commonly used across implementations, likely removed soon.
 	 */
 	public String getNamespace() {
 		return namespace;
