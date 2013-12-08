@@ -32,7 +32,7 @@ import org.javamoney.convert.CurrencyConverter;
 import org.javamoney.convert.ExchangeRate;
 import org.javamoney.convert.ExchangeRateType;
 import org.javamoney.convert.provider.DefaultCurrencyConverter;
-import org.javamoney.moneta.UnknownCurrencyException;
+import org.javamoney.util.UnknownCurrencyException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
