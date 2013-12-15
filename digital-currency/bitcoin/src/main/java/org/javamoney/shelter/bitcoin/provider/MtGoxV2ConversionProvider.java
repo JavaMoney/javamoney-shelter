@@ -22,6 +22,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import javax.money.CurrencyUnit;
 import javax.money.MonetaryException;
+import javax.money.UnknownCurrencyException;
 
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.ObjectMapper;
@@ -32,7 +33,6 @@ import org.javamoney.convert.CurrencyConverter;
 import org.javamoney.convert.ExchangeRate;
 import org.javamoney.convert.ExchangeRateType;
 import org.javamoney.convert.provider.DefaultCurrencyConverter;
-import org.javamoney.util.UnknownCurrencyException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -170,7 +170,7 @@ public class MtGoxV2ConversionProvider implements ConversionProvider {
 			}
 	        if (verbose) System.out.println( "display_short : " +lastNode.path("display_short").getTextValue());
     	} else {
-    		throw new UnknownCurrencyException("Currency not supported", curCode);
+    		throw new UnknownCurrencyException(curCode);
     	}
     }
     
