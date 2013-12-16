@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.javamoney.shelter</groupId>
 	<artifactId>javamoney-shelter</artifactId>
-	<version>0.1-SNAPSHOT</version>
+	<version>0.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>JavaMoney Shelter</name>
 	<description>A shelter for new ideas and modules to be adopted, e.g. via Adopt-a-JSR </description>
