@@ -40,13 +40,13 @@
 
 		<dependency>
 			<groupId>javax.money</groupId>
-			<artifactId>jsr354-api</artifactId>
+			<artifactId>money-api</artifactId>
 			<version>${jsr.version}</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.javamoney.ri</groupId>
-			<artifactId>jsr354-ri</artifactId>
+			<groupId>org.javamoney</groupId>
+			<artifactId>moneta</artifactId>
 			<version>${jsr.version}</version>
 			<scope>compile</scope>
 		</dependency>
