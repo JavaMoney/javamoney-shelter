@@ -10,7 +10,7 @@
 	<parent>
 		<groupId>org.javamoney</groupId>
 		<artifactId>javamoney-parent</artifactId>
-		<version>0.4-SNAPSHOT</version>
+		<version>0.5-SNAPSHOT</version>
 	</parent>
 	<url>http://javamoney.github.io/shelter.html</url>
 	<inceptionYear>2013</inceptionYear>
@@ -24,7 +24,15 @@
 		<jsr.version>0.8-SNAPSHOT</jsr.version>
 		<javamoney.version>0.4-SNAPSHOT</javamoney.version>
 	</properties>
-
+	
+	<repositories>
+		<repository>
+			<id>cloudbees-repo-snapshot</id>
+			<name>JSR 354 Snapshot Repository at CloudBees</name>
+			<url>http://repository-jsr354.forge.cloudbees.com/snapshot</url>
+		</repository>
+	</repositories>
+	
 	<modules>
 		<module>digital-currency</module>
 	</modules>
