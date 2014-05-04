@@ -17,10 +17,9 @@ package org.javamoney.shelter.bitcoin.provider;
 import javax.money.CurrencyUnit;
 import javax.money.MonetaryCurrencies;
 import javax.money.MonetaryException;
+import javax.money.convert.ExchangeRate;
 
-import org.javamoney.convert.ExchangeRate;
-import org.javamoney.util.BuildableCurrencyUnit;
-
+import org.javamoney.moneta.BuildableCurrencyUnit;
 
 /**
  * @author Werner Keil
@@ -28,10 +27,10 @@ import org.javamoney.util.BuildableCurrencyUnit;
  */
 public class MtGoxV2ConversionDemo {
     public static void main(String... arg) throws MonetaryException {
-    	CurrencyUnit btc = new BuildableCurrencyUnit("BTC", 0, 2);
+    	CurrencyUnit btc = new BuildableCurrencyUnit.Builder("BTC").setDefaultFractionDigits(2).build();
     	System.out.println("Currency: " + btc);
     	//MtGoxV2ConversionProvider provider = new MtGoxV2ConversionProvider("USD");
-    	MtGoxV2ConversionProvider provider = new MtGoxV2ConversionProvider();
+    	MtGoxV2RateProvider provider = new MtGoxV2RateProvider();
         provider.loadRate("USD", true);
         ExchangeRate rate = provider.getExchangeRate(MonetaryCurrencies.getCurrency("USD"), btc);
         System.out.println("Rate: " + rate);

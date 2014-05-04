@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013, 2014, Werner Keil, JUGChennai and others.
+ * Copyright (c) 2013, 2014, Werner Keil and others by the @author tag.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,6 +14,8 @@
  */
 package org.javamoney.shelter.bitcoin.provider;
 
+import static javax.money.convert.RateType.DEFERRED;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.Locale;
@@ -22,17 +24,20 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import javax.money.CurrencyUnit;
 import javax.money.MonetaryException;
+import javax.money.NumberValue;
 import javax.money.UnknownCurrencyException;
+import javax.money.convert.ConversionContext;
+import javax.money.convert.CurrencyConversion;
+import javax.money.convert.ExchangeRate;
+import javax.money.convert.ExchangeRateProvider;
+import javax.money.convert.ProviderContext;
+import javax.money.convert.RateType;
 
 import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.ObjectMapper;
 // TODO consider switching to JSR 353
 
-import org.javamoney.convert.ConversionProvider;
-import org.javamoney.convert.CurrencyConverter;
-import org.javamoney.convert.ExchangeRate;
-import org.javamoney.convert.ExchangeRateType;
-import org.javamoney.convert.provider.DefaultCurrencyConverter;
+import org.javamoney.moneta.spi.DefaultNumberValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -44,13 +49,16 @@ import java.text.ParseException;
  *
  * @author Rajmahendra Hegde <rajmahendra@gmail.com>
  * @author Werner Keil
+ * @deprecated MtGox down, implement for other exchange and retire this one in future version.
  */
-public class MtGoxV2ConversionProvider implements ConversionProvider {
-    public static final ExchangeRateType RATE_TYPE = ExchangeRateType.of("MtGox");
+public class MtGoxV2RateProvider implements ExchangeRateProvider {
+    public static final RateType RATE_TYPE = DEFERRED;
+    		
+    		//ExchangeRateType.of("MtGox");
     
     private static final String PROVIDER_URL = "http://data.mtgox.com/api/2/BTC";
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(MtGoxV2ConversionProvider.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(MtGoxV2RateProvider.class);
     
     /**
      * Contains MtGox supported currencyCode types.
@@ -84,13 +92,13 @@ public class MtGoxV2ConversionProvider implements ConversionProvider {
     
     private Map<String, Number> currentRates = new ConcurrentHashMap<String, Number>();
     
-    private CurrencyConverter currencyConverter = new DefaultCurrencyConverter(this);
+//    private CurrencyConverter currencyConverter = new DefaultCurrencyConverter(this);
 
-    public MtGoxV2ConversionProvider() {
+    public MtGoxV2RateProvider() {
     	this(null);
     }
     
-    public MtGoxV2ConversionProvider(String currencyCode) {
+    public MtGoxV2RateProvider(String currencyCode) {
     	this.forCurrency = currencyCode;
     	
     	if(forCurrency == null) {
@@ -102,8 +110,7 @@ public class MtGoxV2ConversionProvider implements ConversionProvider {
     	}
     }
 
-    @Override
-    public ExchangeRateType getExchangeRateType() {
+    public RateType getRateType() {
         return RATE_TYPE;
     }
 
@@ -112,12 +119,10 @@ public class MtGoxV2ConversionProvider implements ConversionProvider {
         return getExchangeRate(base, term) != null;
     }
 
-    @Override
     public boolean isAvailable(CurrencyUnit base, CurrencyUnit term, long timestamp) {
         return getExchangeRate(base, term, timestamp) != null;
     }
-
-    @Override
+    
     public ExchangeRate getExchangeRate(CurrencyUnit base, CurrencyUnit term, long timestamp) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -127,24 +132,24 @@ public class MtGoxV2ConversionProvider implements ConversionProvider {
         if (!MtGoxCurrency.isSupported(base.getCurrencyCode()) || MtGoxCurrency.isSupported(term.getCurrencyCode())) {
             return null;
         }
-        final Number factor = currentRates.get(base.getCurrencyCode());
+        final NumberValue  factor = DefaultNumberValue.of(currentRates.get(base.getCurrencyCode()));
         if (factor!=null) {
-        	return new ExchangeRate.Builder().withExchangeRateType(RATE_TYPE).setBase(base).setTerm(term).withFactor(factor).withProvider("MtGox").build();
+        	return new ExchangeRate.Builder("MtGox", RATE_TYPE).setBase(base).setTerm(term).setFactor(factor).build();
         } else {
         	return null;
         }
     }
 
-    @Override
-    public ExchangeRate getReversed(ExchangeRate rate) {
-        return getExchangeRate(rate.getTerm(), rate.getBase(),
-                rate.getValidFromMillis());
-    }
+//    @Override
+//    public ExchangeRate getReversed(ExchangeRate rate) {
+//        return getExchangeRate(rate.getTerm(), rate.getBase(),
+//                rate.getValidFromMillis());
+//    }
 
-    @Override
-    public CurrencyConverter getConverter() {
-        return currencyConverter;
-    }
+//    @Override
+//    public CurrencyConverter getConverter() {
+//        return currencyConverter;
+//    }
     
     /**
      * Looks up the rate for a given currencyCode 
@@ -180,4 +185,82 @@ public class MtGoxV2ConversionProvider implements ConversionProvider {
     void loadRate(String curCode) {
     	loadRate(curCode, false);
     }
+
+	@Override
+	public ProviderContext getProviderContext() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean isAvailable(CurrencyUnit base, CurrencyUnit term,
+			ConversionContext conversionContext) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isAvailable(String baseCode, String termCode) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isAvailable(String baseCode, String termCode,
+			ConversionContext conversionContext) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public ExchangeRate getExchangeRate(CurrencyUnit base, CurrencyUnit term,
+			ConversionContext conversionContext) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ExchangeRate getExchangeRate(String baseCode, String termCode) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ExchangeRate getExchangeRate(String baseCode, String termCode,
+			ConversionContext conversionContext) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ExchangeRate getReversed(ExchangeRate rate) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public CurrencyConversion getCurrencyConversion(CurrencyUnit term) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public CurrencyConversion getCurrencyConversion(CurrencyUnit term,
+			ConversionContext conversionContext) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public CurrencyConversion getCurrencyConversion(String termCode) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public CurrencyConversion getCurrencyConversion(String termCode,
+			ConversionContext conversionContext) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

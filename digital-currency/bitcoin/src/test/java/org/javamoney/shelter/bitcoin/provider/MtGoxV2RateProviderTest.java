@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013, Werner Keil, JUGChennai and others.
+ * Copyright (c) 2013-2014, Werner Keil and others by the @author tag.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,7 +14,8 @@
  */
 package org.javamoney.shelter.bitcoin.provider;
 
-import org.javamoney.convert.ExchangeRateType;
+import javax.money.convert.ExchangeRateProvider;
+
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -23,16 +24,16 @@ import static org.junit.Assert.*;
  * @author Werner Keil
  * @author Rajmahendra Hegde <rajmahendra@gmail.com>
  */
-public class MtGoxV2ConversionProviderTest {
+public class MtGoxV2RateProviderTest {
     
-    private static final ExchangeRateType MTGOX_RATE_TYPE = ExchangeRateType
-			.of("MtGox");
+    private static final ExchangeRateProvider MTGOX_PROVIDER = new MtGoxV2RateProvider();
     
-    public MtGoxV2ConversionProviderTest() {
+    public MtGoxV2RateProviderTest() {
     }
     
     @Test
     public void testMtGoxConversionProviderIsNotNull() {
-    	assertNotNull(MTGOX_RATE_TYPE);
+    	assertNotNull(MTGOX_PROVIDER);
+    	//assertEquals("MtGox", MTGOX_PROVIDER.getProviderContext().getProvider());
     }
 }
