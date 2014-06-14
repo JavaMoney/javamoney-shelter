@@ -27,7 +27,7 @@ import org.javamoney.moneta.BuildableCurrencyUnit;
  */
 public class MtGoxV2ConversionDemo {
     public static void main(String... arg) throws MonetaryException {
-    	CurrencyUnit btc = new BuildableCurrencyUnit.Builder("BTC").setDefaultFractionDigits(2).build();
+    	CurrencyUnit btc = new BuildableCurrencyUnit.Builder("BTC").setDefaultFractionDigits(2).create();
     	System.out.println("Currency: " + btc);
     	//MtGoxV2ConversionProvider provider = new MtGoxV2ConversionProvider("USD");
     	MtGoxV2RateProvider provider = new MtGoxV2RateProvider();

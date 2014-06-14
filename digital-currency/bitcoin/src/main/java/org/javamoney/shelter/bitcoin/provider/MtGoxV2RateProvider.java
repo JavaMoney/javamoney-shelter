@@ -134,7 +134,7 @@ public class MtGoxV2RateProvider implements ExchangeRateProvider {
         }
         final NumberValue  factor = DefaultNumberValue.of(currentRates.get(base.getCurrencyCode()));
         if (factor!=null) {
-        	return new ExchangeRate.Builder("MtGox", RATE_TYPE).setBase(base).setTerm(term).setFactor(factor).build();
+        	return new ExchangeRate.Builder("MtGox", RATE_TYPE).setBase(base).setTerm(term).setFactor(factor).create();
         } else {
         	return null;
         }
