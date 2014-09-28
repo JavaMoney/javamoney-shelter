@@ -16,6 +16,7 @@ package org.javamoney.shelter.bitcoin.provider;
 
 import javax.money.convert.ExchangeRateProvider;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -24,8 +25,9 @@ import static org.junit.Assert.*;
  * @author Werner Keil
  * @author Rajmahendra Hegde <rajmahendra@gmail.com>
  */
+@Ignore
 public class MtGoxV2RateProviderTest {
-    
+
     private static final ExchangeRateProvider MTGOX_PROVIDER = new MtGoxV2RateProvider();
     
     public MtGoxV2RateProviderTest() {
