@@ -70,7 +70,6 @@ public class BitcoinDeRateProvider implements ExchangeRateProvider {
 
         private SupportedCurrency(String code) {
             this.currencyCode = code;
-
         }
 
         public static boolean isSupported(String newCurrency) {
@@ -80,7 +79,6 @@ public class BitcoinDeRateProvider implements ExchangeRateProvider {
                 return false;
             }
             return true;
-
         }
     }
     
@@ -156,7 +154,7 @@ public class BitcoinDeRateProvider implements ExchangeRateProvider {
 			} catch (ParseException e) {
 				LOGGER.warn("Warning", e);
 			}
-	        if (verbose) System.out.println( "display_short : " +lastNode.path("display_short").getTextValue());
+	        if (verbose) System.out.println( "display_short : " +lastNode.path("rate_weighted").getTextValue());
     	} else {
     		throw new UnknownCurrencyException(curCode);
     	}
