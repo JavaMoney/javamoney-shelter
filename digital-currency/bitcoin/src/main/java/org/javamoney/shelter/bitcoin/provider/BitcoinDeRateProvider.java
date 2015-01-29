@@ -72,7 +72,7 @@ public class BitcoinDeRateProvider implements ExchangeRateProvider {
             this.currencyCode = code;
         }
 
-        public static boolean isSupported(String newCurrency) {
+        public static boolean contains(String newCurrency) {
             try {
                 valueOf(newCurrency);
             } catch (IllegalArgumentException e) {
@@ -84,7 +84,7 @@ public class BitcoinDeRateProvider implements ExchangeRateProvider {
     
     private final String forCurrency;
     
-    private Map<String, Number> currentRates = new ConcurrentHashMap<String, Number>();
+    private final Map<String, Number> currentRates = new ConcurrentHashMap<>();
     
     public BitcoinDeRateProvider() {
     	this(null);
@@ -121,12 +121,12 @@ public class BitcoinDeRateProvider implements ExchangeRateProvider {
 
     @Override
     public ExchangeRate getExchangeRate(CurrencyUnit base, CurrencyUnit term) {
-        if (!SupportedCurrency.isSupported(base.getCurrencyCode()) || SupportedCurrency.isSupported(term.getCurrencyCode())) {
+        if (!SupportedCurrency.contains(base.getCurrencyCode()) || SupportedCurrency.contains(term.getCurrencyCode())) {
             return null;
         }
         final NumberValue  factor = DefaultNumberValue.of(currentRates.get(base.getCurrencyCode()));
         if (factor!=null) {
-        	return new ExchangeRate.Builder("MtGox", RATE_TYPE).setBase(base).setTerm(term).setFactor(factor).create();
+        	return new ExchangeRate.Builder("Bitcoin.de", RATE_TYPE).setBase(base).setTerm(term).setFactor(factor).create();
         } else {
         	return null;
         }
@@ -136,7 +136,7 @@ public class BitcoinDeRateProvider implements ExchangeRateProvider {
      * Looks up the rate for a given currencyCode 
      */
     void loadRate(String curCode, boolean verbose) {
-    	if (SupportedCurrency.isSupported(curCode)) {
+    	if (SupportedCurrency.contains(curCode)) {
 	        ObjectMapper m = new ObjectMapper();
 	        JsonNode root;
 			try {
