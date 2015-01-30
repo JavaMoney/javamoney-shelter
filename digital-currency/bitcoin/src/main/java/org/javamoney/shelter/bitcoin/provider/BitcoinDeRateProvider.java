@@ -26,7 +26,7 @@ import javax.money.CurrencyUnit;
 import javax.money.MonetaryException;
 import javax.money.NumberValue;
 import javax.money.UnknownCurrencyException;
-import javax.money.convert.ConversionContext;
+import javax.money.convert.ConversionQuery;
 import javax.money.convert.CurrencyConversion;
 import javax.money.convert.ExchangeRate;
 import javax.money.convert.ExchangeRateProvider;
@@ -37,6 +37,7 @@ import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.ObjectMapper;
 // TODO consider switching to JSR 353
 
+import org.javamoney.moneta.ExchangeRateBuilder;
 import org.javamoney.moneta.spi.DefaultNumberValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -126,7 +127,7 @@ public class BitcoinDeRateProvider implements ExchangeRateProvider {
         }
         final NumberValue  factor = DefaultNumberValue.of(currentRates.get(base.getCurrencyCode()));
         if (factor!=null) {
-        	return new ExchangeRate.Builder("Bitcoin.de", RATE_TYPE).setBase(base).setTerm(term).setFactor(factor).create();
+        	return new ExchangeRateBuilder("Bitcoin.de", RATE_TYPE).setBase(base).setTerm(term).setFactor(factor).build();
         } else {
         	return null;
         }
@@ -174,41 +175,14 @@ public class BitcoinDeRateProvider implements ExchangeRateProvider {
 	}
 
 	@Override
-	public boolean isAvailable(CurrencyUnit base, CurrencyUnit term,
-			ConversionContext conversionContext) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
 	public boolean isAvailable(String baseCode, String termCode) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
-	public boolean isAvailable(String baseCode, String termCode,
-			ConversionContext conversionContext) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public ExchangeRate getExchangeRate(CurrencyUnit base, CurrencyUnit term,
-			ConversionContext conversionContext) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public ExchangeRate getExchangeRate(String baseCode, String termCode) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public ExchangeRate getExchangeRate(String baseCode, String termCode,
-			ConversionContext conversionContext) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -225,12 +199,6 @@ public class BitcoinDeRateProvider implements ExchangeRateProvider {
 		return null;
 	}
 
-	@Override
-	public CurrencyConversion getCurrencyConversion(CurrencyUnit term,
-			ConversionContext conversionContext) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public CurrencyConversion getCurrencyConversion(String termCode) {
@@ -238,10 +206,22 @@ public class BitcoinDeRateProvider implements ExchangeRateProvider {
 		return null;
 	}
 
+
 	@Override
-	public CurrencyConversion getCurrencyConversion(String termCode,
-			ConversionContext conversionContext) {
+	public CurrencyConversion getCurrencyConversion(ConversionQuery arg0) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public ExchangeRate getExchangeRate(ConversionQuery arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean isAvailable(ConversionQuery arg0) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

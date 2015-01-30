@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013, Werner Keil, JUGChennai and others.
+ * Copyright (c) 2013-2015, Werner Keil and others by the @author tag.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,19 +18,18 @@ import javax.money.CurrencyUnit;
 import javax.money.MonetaryCurrencies;
 import javax.money.MonetaryException;
 import javax.money.convert.ExchangeRate;
-
-import org.javamoney.moneta.BuildableCurrencyUnit;
+import org.javamoney.moneta.CurrencyUnitBuilder;
 
 /**
  * @author Werner Keil
  *
  */
-public class MtGoxV2ConversionDemo {
+public class BitcoinDeConversionDemo {
     public static void main(String... arg) throws MonetaryException {
-    	CurrencyUnit btc = new BuildableCurrencyUnit.Builder("BTC").setDefaultFractionDigits(2).create();
+    	CurrencyUnit btc = CurrencyUnitBuilder.of("BTC", "Bitcoin.de").build();
     	System.out.println("Currency: " + btc);
     	//MtGoxV2ConversionProvider provider = new MtGoxV2ConversionProvider("USD");
-    	MtGoxV2RateProvider provider = new MtGoxV2RateProvider();
+    	BitcoinDeRateProvider provider = new BitcoinDeRateProvider();
         provider.loadRate("USD", true);
         ExchangeRate rate = provider.getExchangeRate(MonetaryCurrencies.getCurrency("USD"), btc);
         System.out.println("Rate: " + rate);

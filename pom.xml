@@ -3,14 +3,14 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.javamoney.shelter</groupId>
 	<artifactId>javamoney-shelter</artifactId>
-	<version>0.3-SNAPSHOT</version>
+	<version>0.3</version>
 	<packaging>pom</packaging>
 	<name>JavaMoney Shelter</name>
 	<description>A shelter for new ideas and modules to be adopted, e.g. via Adopt-a-JSR </description>
 	<parent>
 		<groupId>org.javamoney</groupId>
 		<artifactId>javamoney-parent</artifactId>
-		<version>0.5-SNAPSHOT</version>
+		<version>0.5</version>
 	</parent>
 	<url>http://javamoney.github.io/shelter.html</url>
 	<inceptionYear>2013</inceptionYear>
@@ -21,8 +21,8 @@
 		<junit.version>4.8.2</junit.version>
 		<slf4j.version>1.6.1</slf4j.version>
 		<!-- JSR versions -->
-		<jsr.version>0.8</jsr.version>
-		<javamoney.version>0.4</javamoney.version>
+		<jsr.version>0.9</jsr.version>
+		<javamoney.version>0.5</javamoney.version>
 	</properties>
 	
 	<repositories>

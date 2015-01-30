@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013-2014, Werner Keil and others by the @author tag.
+ * Copyright (c) 2013-2015, Werner Keil and others by the @author tag.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -23,19 +23,18 @@ import static org.junit.Assert.*;
 
 /**
  * @author Werner Keil
- * @author Rajmahendra Hegde <rajmahendra@gmail.com>
  */
 @Ignore
-public class MtGoxV2RateProviderTest {
+public class BitcoinDeRateProviderTest {
 
-    private static final ExchangeRateProvider MTGOX_PROVIDER = new MtGoxV2RateProvider();
+    private static final ExchangeRateProvider PROVIDER = new BitcoinDeRateProvider();
     
-    public MtGoxV2RateProviderTest() {
+    public BitcoinDeRateProviderTest() {
     }
     
     @Test
     public void testMtGoxConversionProviderIsNotNull() {
-    	assertNotNull(MTGOX_PROVIDER);
-    	//assertEquals("MtGox", MTGOX_PROVIDER.getProviderContext().getProvider());
+    	assertNotNull(PROVIDER);
+    	//assertEquals("Bitcoin.de", MTGOX_PROVIDER.getProviderContext().getProvider());
     }
 }
