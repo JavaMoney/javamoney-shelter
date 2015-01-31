@@ -17,6 +17,11 @@ This allows to gain experience and make components error prone and performant an
 </dependency>
 ```
 
+Subprojects
+-----------
+* [groovy-demo](./groovylang-support/groovy-demo) Simple example and exploratory unit tests showing usage in Groovy with and without support for operator overloading.
+* [javamoney-bitcoin](./javamoney-digital-currency/javamoney-bitcoin) Bitcoin Support
+
 Authors and Contributors
 ------------------------
 Everyone is welcome to contribute. Werner Keil (@keilw) composed this project for you.
