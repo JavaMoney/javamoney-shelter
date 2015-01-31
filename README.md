@@ -20,7 +20,7 @@ This allows to gain experience and make components error prone and performant an
 Subprojects
 -----------
 * [groovy-demo](./groovylang-support/groovy-demo) Simple example and exploratory unit tests showing usage in Groovy with and without support for operator overloading.
-* [javamoney-bitcoin](./javamoney-digital-currency/bitcoin) Bitcoin Support
+* [javamoney-bitcoin](./digital-currency/bitcoin) Bitcoin Support
 
 Authors and Contributors
 ------------------------
