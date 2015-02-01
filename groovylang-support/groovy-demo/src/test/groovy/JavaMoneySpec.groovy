@@ -56,48 +56,6 @@ class JavaMoneySpec extends Specification {
         sum == Money.of(11, "USD")
     }
 
-    def "add currency amounts using Groovy operator overloading fails" () {
-        when:
-        MonetaryAmount amount1 = Money.of(10, "USD")
-        MonetaryAmount amount2 = Money.of(1, "USD")
-        MonetaryAmount sum = amount1 + amount2
-
-        then:
-        groovy.lang.MissingMethodException e = thrown()
-        e.message != null
-    }
-
-    def "add number values using plus method" () {
-        when:
-        NumberValue value1 = Money.of(10, "USD").number
-        NumberValue value2 = Money.of(1, "USD").number
-        def sum = value1.plus(value2)
-
-        then:
-        sum == 11
-        sum.class == Integer.class
-    }
-
-    def "add number values using Groovy operator overloading succeeds" () {
-        when:
-        NumberValue value1 = Money.of(10, "USD").number
-        NumberValue value2 = Money.of(1, "USD").number
-        def sum = value1 + value2
-
-        then:
-        sum == 11
-        sum.class == Integer.class
-    }
-
-    def "add number values to get a new NumberValue" () {
-        when:
-        NumberValue value1 = Money.of(10, "USD").number
-        NumberValue value2 = Money.of(1, "USD").number
-        NumberValue sum = DefaultNumberValue.of(value1 + value2)
-
-        then:
-        sum == 11
-    }
 
     @ConfineMetaClassChanges(DefaultNumberValue)
     def "Update the metaclass so NumberValue + NumberValue = NumberValue" () {
