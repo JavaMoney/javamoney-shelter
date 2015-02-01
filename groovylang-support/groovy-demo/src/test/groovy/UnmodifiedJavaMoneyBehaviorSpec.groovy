@@ -16,7 +16,7 @@ import javax.money.NumberValue
  * { @code def sum = amount1 + amount2 }
  *
  */
-class UnmodifiedCompilerConfigSpec extends Specification {
+class UnmodifiedJavaMoneyBehaviorSpec extends Specification {
 
     def "Add currency amounts using Groovy operator overloading fails" () {
         when: "We add two MonetaryAmounts"

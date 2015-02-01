@@ -3,10 +3,14 @@
  */
 
 
+import com.msgilligan.moneta.MonetaryAmountCategory
+import com.msgilligan.moneta.NumberValueCategory
 import org.javamoney.moneta.Money
 import org.javamoney.moneta.spi.DefaultNumberValue
+import spock.lang.Ignore
 import spock.lang.Specification
 import spock.util.mop.ConfineMetaClassChanges
+import spock.util.mop.Use
 
 import javax.money.CurrencyUnit
 import javax.money.MonetaryAmount
@@ -22,12 +26,12 @@ import javax.money.NumberValue
  * { @code def sum = amount1 + amount2 }
  *
  *
- * The Groovy MetaClass is used to add some of the operator methods used by Groovy for arithmetic.
- * Note: The Spock {@code @ConfineMetaClassChanges} annotation is used to limit MetaClass changes
- * to a single feature test.
+ * Groovy Categories are used to support some of the operator methods used by Groovy for arithmetic.
  *
  */
+@Use([MonetaryAmountCategory, NumberValueCategory])
 class JavaMoneySpec extends Specification {
+
     def "create currency unit" () {
         when:
         CurrencyUnit usDollar = MonetaryCurrencies.getCurrency("USD")
@@ -57,12 +61,7 @@ class JavaMoneySpec extends Specification {
     }
 
 
-    @ConfineMetaClassChanges(DefaultNumberValue)
-    def "Update the metaclass so NumberValue + NumberValue = NumberValue" () {
-        given: "we dynamically add a plus() method using Groovy"
-        DefaultNumberValue.metaClass.plus { DefaultNumberValue right ->
-            new DefaultNumberValue(longValueExact() + right.longValueExact()) }
-
+    def "NumberValue + NumberValue = NumberValue" () {
         when:
         NumberValue value1 = Money.of(10, "USD").number
         NumberValue value2 = Money.of(1, "USD").number
@@ -73,11 +72,7 @@ class JavaMoneySpec extends Specification {
         sum.class == DefaultNumberValue.class
     }
 
-    @ConfineMetaClassChanges(MonetaryAmount)
-    def "Update the metaclass so MonetaryAmount + MonetaryAmount = MonetaryAmount" () {
-        given: "we dynamically add a plus() method using Groovy"
-        MonetaryAmount.metaClass.plus { MonetaryAmount right -> add(right) }
-
+    def "MonetaryAmount + MonetaryAmount = MonetaryAmount" () {
         when:
         def amount1 = Money.of(10, "USD")
         def amount2 = Money.of(1, "USD")
@@ -89,11 +84,7 @@ class JavaMoneySpec extends Specification {
         sum.class == Money.class
     }
 
-    @ConfineMetaClassChanges(MonetaryAmount)
     def "USD + EUR throws exception" () {
-        given: "we dynamically add a plus() method using Groovy"
-        MonetaryAmount.metaClass.plus { MonetaryAmount right -> add(right) }
-
         when:
         def amount1 = Money.of(10, "USD")
         def amount2 = Money.of(1, "EUR")
@@ -103,5 +94,4 @@ class JavaMoneySpec extends Specification {
         javax.money.MonetaryException e = thrown()
         e.message == "Currency mismatch: USD/EUR"
     }
-
 }

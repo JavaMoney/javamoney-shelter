@@ -1,25 +1,31 @@
 package com.msgilligan.moneta
 
-import org.javamoney.moneta.Money
 
 import javax.money.MonetaryAmount
+import org.javamoney.moneta.Money
 
 /**
  * Simple Demo of using Moneta from Groovy
  *
- * Note: (For now) the real action is in the Spock tests.
+ * Example of arithmetic using MonetaryAmounts with operator overloading added
+ * though Groovy Categories and the mixin() method
+ *
+ * Note: (For now) most of the action is in the Spock tests.
  *
  */
 
-// Configure this Groovy Meta-class for MonetaryAmount
-// In the future this should be done automatically/invisibly
+public class GroovyDemo {
 
-MonetaryAmount.metaClass.plus { MonetaryAmount right -> add(right) }
+    public static void main(String[] args) {
 
-// Example of arithmetic using MonetaryAmounts with operator overloading added
-// though Groovy and Groovy Meta-class
+        MonetaryAmount.mixin(MonetaryAmountCategory)
 
-def value1 = Money.of(10, "USD")
-def value2 = Money.of(0.99, "USD")
-def sum = value1 + value2
-println "${value1} + ${value2} = ${sum}"
+        def value1 = Money.of(10, "USD")
+        def value2 = Money.of(0.99, "USD")
+
+        def sum = value1 + value2               // Add MonetaryAmounts with '+' operator
+
+        println "${value1} + ${value2} = ${sum}"
+
+    }
+}
