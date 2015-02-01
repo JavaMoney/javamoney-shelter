@@ -1,7 +1,7 @@
 Groovy Language and Java Money
 ------------------------------
 
-Sample project(s) and Spock Unit Tests to demostrate usage of Java Money API in the Groovy Language.
+Sample project(s) and Spock Unit Tests to demonstrate usage of Java Money API in the Groovy Language.
 
 Project/subdirectories:
 
