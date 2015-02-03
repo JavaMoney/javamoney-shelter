@@ -26,41 +26,41 @@ class NumberCategorySpec extends Specification {
 
     def "can make EUR"() {
         when:
-        def aBuck = 1.eur
+        def amount = 1.eur
 
         then:
-        aBuck instanceof MonetaryAmount
-        aBuck.number == 1
-        aBuck.currency == MonetaryCurrencies.getCurrency("EUR")
+        amount instanceof MonetaryAmount
+        amount.number == 1
+        amount.currency == MonetaryCurrencies.getCurrency("EUR")
     }
 
     def "can make any supported currency via propertyMissing"() {
         when:
-        def aBuck = 1.jpy
+        def amount = 1.jpy
 
         then:
-        aBuck instanceof MonetaryAmount
-        aBuck.number == 1
-        aBuck.currency == MonetaryCurrencies.getCurrency("JPY")
+        amount instanceof MonetaryAmount
+        amount.number == 1
+        amount.currency == MonetaryCurrencies.getCurrency("JPY")
     }
 
     def "Undefined currency should throw UnknownCurrencyException"() {
         when:
-        def aBuck = 1.invalid
+        def amount = 1.invalid
 
         then:
         javax.money.UnknownCurrencyException e = thrown()
-        aBuck == null
+        amount == null
     }
 
     def "Works with decimals"() {
         when:
-        def aBuck = 0.99.usd
+        def amount = 0.99.usd
 
         then:
-        aBuck instanceof MonetaryAmount
-        aBuck.number == 0.99
-        aBuck.currency == MonetaryCurrencies.getCurrency("USD")
+        amount instanceof MonetaryAmount
+        amount.number == 0.99
+        amount.currency == MonetaryCurrencies.getCurrency("USD")
     }
 
 }
