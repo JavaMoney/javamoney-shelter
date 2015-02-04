@@ -32,7 +32,7 @@ import javax.money.NumberValue
 @Use([MonetaryAmountCategory, NumberValueCategory])
 class JavaMoneySpec extends Specification {
 
-    def "create currency unit" () {
+    def "get currency unit" () {
         when:
         CurrencyUnit usDollar = MonetaryCurrencies.getCurrency("USD")
 
@@ -49,7 +49,7 @@ class JavaMoneySpec extends Specification {
         tenUsDollar.number == 10
     }
 
-    def "add currency amounts" () {
+    def "add MonetaryAmount objects with the add() method" () {
         when:
         MonetaryAmount amount1 = Money.of(10, "USD")
         MonetaryAmount amount2 = Money.of(1, "USD")
@@ -58,40 +58,5 @@ class JavaMoneySpec extends Specification {
         then:
         sum.number == 11
         sum == Money.of(11, "USD")
-    }
-
-
-    def "NumberValue + NumberValue = NumberValue" () {
-        when:
-        NumberValue value1 = Money.of(10, "USD").number
-        NumberValue value2 = Money.of(1, "USD").number
-        def sum = value1 + value2
-
-        then:
-        sum == 11
-        sum.class == DefaultNumberValue.class
-    }
-
-    def "MonetaryAmount + MonetaryAmount = MonetaryAmount" () {
-        when:
-        def amount1 = Money.of(10, "USD")
-        def amount2 = Money.of(1, "USD")
-        def sum = amount1 + amount2
-
-        then:
-        sum.number == 11
-        sum.currency.currencyCode == "USD"
-        sum.class == Money.class
-    }
-
-    def "USD + EUR throws exception" () {
-        when:
-        def amount1 = Money.of(10, "USD")
-        def amount2 = Money.of(1, "EUR")
-        def sum = amount1 + amount2
-
-        then:
-        javax.money.MonetaryException e = thrown()
-        e.message == "Currency mismatch: USD/EUR"
     }
 }

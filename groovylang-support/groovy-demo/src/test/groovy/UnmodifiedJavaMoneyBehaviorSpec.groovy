@@ -18,6 +18,7 @@ import javax.money.NumberValue
  */
 class UnmodifiedJavaMoneyBehaviorSpec extends Specification {
 
+
     def "Add currency amounts using Groovy operator overloading fails" () {
         when: "We add two MonetaryAmounts"
         MonetaryAmount amount1 = Money.of(10, "USD")
