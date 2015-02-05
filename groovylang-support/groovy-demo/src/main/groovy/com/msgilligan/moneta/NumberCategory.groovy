@@ -1,5 +1,6 @@
 package com.msgilligan.moneta
 
+import groovy.transform.CompileStatic
 import org.javamoney.moneta.Money
 
 import javax.money.CurrencyUnit
@@ -15,6 +16,7 @@ import javax.money.MonetaryCurrencies
  *
  * @author Sean Gilligan
  */
+@CompileStatic
 @Category(Number)
 class NumberCategory {
     MonetaryAmount getUsd() {

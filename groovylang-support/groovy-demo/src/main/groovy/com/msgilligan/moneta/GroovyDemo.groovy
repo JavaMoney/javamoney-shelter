@@ -18,6 +18,7 @@ public class GroovyDemo {
 
     public static void main(String[] args) {
 
+        // Still need to use .mixin here as long as Extensions in on same subproject/build as the demo class
         MonetaryAmount.mixin(MonetaryAmountCategory)
 
         def value1 = Money.of(10, "USD")

@@ -1,5 +1,6 @@
 package com.msgilligan.moneta
 
+import groovy.transform.CompileStatic
 import org.javamoney.moneta.spi.DefaultNumberValue
 
 import javax.money.NumberValue
@@ -7,6 +8,7 @@ import javax.money.NumberValue
 /**
  * Category to add improve NumberValue to better support operator overloading.
  */
+@CompileStatic
 @Category(NumberValue)
 class NumberValueCategory {
     /**

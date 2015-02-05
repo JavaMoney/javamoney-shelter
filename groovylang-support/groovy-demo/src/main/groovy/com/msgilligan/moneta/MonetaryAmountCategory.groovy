@@ -1,10 +1,13 @@
 package com.msgilligan.moneta
 
+import groovy.transform.CompileStatic
+
 import javax.money.MonetaryAmount
 
 /**
  * Category to add methods to MonetaryAmount to support operator overloading.
  */
+@CompileStatic
 @Category(MonetaryAmount)
 class MonetaryAmountCategory {
 
