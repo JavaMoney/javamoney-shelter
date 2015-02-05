@@ -29,7 +29,6 @@ import javax.money.NumberValue
  * Groovy Categories are used to support some of the operator methods used by Groovy for arithmetic.
  *
  */
-@Use([MonetaryAmountCategory, NumberValueCategory])
 class JavaMoneySpec extends Specification {
 
     def "get currency unit" () {

@@ -11,7 +11,7 @@ import javax.money.MonetaryAmount
  * Demonstrate JavaMoney API with Groovy extensions.
  *
  */
-@Use([MonetaryAmountCategory, NumberCategory])
+@Use(NumberCategory)
 class GroovyMoneyDemoSpec extends Specification {
 
     def "Create two MonetaryAmounts with Number properties and add them with + operator" () {

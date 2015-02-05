@@ -11,7 +11,6 @@ import javax.money.NumberValue
 /**
  * Test of operators added by NumberValueCategory
  */
-@Use(NumberValueCategory)
 class NumberValueCategorySpec extends Specification {
     def "NumberValue + NumberValue = NumberValue" () {
         when:

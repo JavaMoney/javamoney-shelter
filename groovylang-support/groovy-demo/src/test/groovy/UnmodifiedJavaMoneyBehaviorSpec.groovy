@@ -1,5 +1,6 @@
 import org.javamoney.moneta.Money
 import org.javamoney.moneta.spi.DefaultNumberValue
+import spock.lang.Ignore
 import spock.lang.Specification
 
 import javax.money.MonetaryAmount
@@ -15,7 +16,11 @@ import javax.money.NumberValue
  *
  * { @code def sum = amount1 + amount2 }
  *
+ * IGNORED until we can move to another subproject or setup a class path without
+ * the Groovy Extensions.
+ *
  */
+@Ignore
 class UnmodifiedJavaMoneyBehaviorSpec extends Specification {
 
 

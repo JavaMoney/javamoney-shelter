@@ -8,7 +8,6 @@ import spock.util.mop.Use
 /**
  * Test of operators added by MonetaryAmountCategory
  */
-@Use(MonetaryAmountCategory)
 class MonetaryAmountCategorySpec extends Specification {
 
     def "MonetaryAmount + MonetaryAmount = MonetaryAmount" () {
