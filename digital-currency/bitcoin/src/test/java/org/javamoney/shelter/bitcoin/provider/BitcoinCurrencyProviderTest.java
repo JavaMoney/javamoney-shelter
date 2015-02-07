@@ -14,81 +14,22 @@ import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 /**
- * First cut at a test for a BitcoinCurrencyProvider
+ * (Replaced by BitcoinCurrencyProviderSpec)
+ *
+ * Left in project as a working placeholder/example of a JUnit test
  *
  * @author Sean Gilligan
  */
 public class BitcoinCurrencyProviderTest {
 
+    /**
+     * Trivial test just to show that JUnit and Spock tests are both working
+     */
     @Test
-    public void canCreateNewInstance() {
-        BitcoinCurrencyProvider provider = new BitcoinCurrencyProvider();
-        assertNotNull(provider);
+    public void trivialTest() {
+        assertTrue(true);
     }
-
-    @Test
-    public void returnsBitcoinForEmptyQuery() {
-        BitcoinCurrencyProvider provider = new BitcoinCurrencyProvider();
-        assertNotNull(provider);
-        CurrencyQuery query = CurrencyQueryBuilder.of().build();
-        Set<CurrencyUnit> currencies = provider.getCurrencies(query);
-        assertEquals("returned 1 currency", 1, currencies.size());
-        CurrencyUnit btc = (CurrencyUnit) currencies.toArray()[0];
-        assertEquals("currency is BTC", "BTC", btc.getCurrencyCode());
-    }
-
-    @Test
-    public void returnsBitcoinForBTCQuery() {
-        BitcoinCurrencyProvider provider = new BitcoinCurrencyProvider();
-        assertNotNull(provider);
-        CurrencyQuery query = CurrencyQueryBuilder.of().setCurrencyCodes("BTC").build();
-        Set<CurrencyUnit> currencies = provider.getCurrencies(query);
-        assertEquals("returned 1 currency", 1, currencies.size());
-        CurrencyUnit btc = (CurrencyUnit) currencies.toArray()[0];
-        assertEquals("currency is BTC", "BTC", btc.getCurrencyCode());
-    }
-
-    @Test
-    public void returnsEmptyForUSDQuery() {
-        BitcoinCurrencyProvider provider = new BitcoinCurrencyProvider();
-        assertNotNull(provider);
-        CurrencyQuery query = CurrencyQueryBuilder.of().setCurrencyCodes("USD").build();
-        Set<CurrencyUnit> currencies = provider.getCurrencies(query);
-        assertEquals("returned 0 currencies", 0, currencies.size());
-    }
-
-    @Test(expected=UnknownCurrencyException.class)
-    public void canNOTBeFoundViaMonetaryCurrencies() {
-        // Since we're not registered properly MonetaryCurrencies.getCurrency should throw an exception
-        CurrencyUnit btc = MonetaryCurrencies.getCurrency("BTC");
-    }
-
-    @Test()
-    public void WeCanMakeMoneyNow() {
-        // Since we're not registered properly MonetaryCurrencies.getCurrency should throw an exception
-        BitcoinCurrencyProvider provider = new BitcoinCurrencyProvider();
-        assertNotNull(provider);
-        CurrencyQuery query = CurrencyQueryBuilder.of().setCurrencyCodes("BTC").build();
-        Set<CurrencyUnit> currencies = provider.getCurrencies(query);
-        assertEquals("returned 1 currency", 1, currencies.size());
-        CurrencyUnit btc = (CurrencyUnit) currencies.toArray()[0];
-        assertEquals("currency is BTC", "BTC", btc.getCurrencyCode());
-
-        MonetaryAmount oneBitcoin = Money.of(1, btc);
-        assertNotNull(oneBitcoin);
-        assertEquals("number is correct", 1L, oneBitcoin.getNumber().longValueExact());
-        assertEquals("units is correct", btc, oneBitcoin.getCurrency());
-    }
-
-    @Test
-    public void WeDoNotReallyNeedAProviderToMakeMoney() {
-        CurrencyUnit btc = CurrencyUnitBuilder.of("BTC", "ad hoc btc provider").build();
-        MonetaryAmount oneBitcoin = Money.of(1, btc);
-        assertNotNull(oneBitcoin);
-        assertEquals("number is correct", 1L, oneBitcoin.getNumber().longValueExact());
-        assertEquals("units is correct", btc, oneBitcoin.getCurrency());
-    }
-
 }
