@@ -5,5 +5,7 @@ Sample project(s) and Spock Unit Tests to demonstrate usage of Java Money API in
 
 Project/subdirectories:
 
-* [groovy-demo](./groovy-demo): Simple example and exploratory unit tests showing usage in Groovy with and without support for operator overloading.
+* [groovy-money](./groovy-money): A Groovy Extension Module for Java Money providing operator overloading and more.
+* groovy-demo: Groovy demo and Spock tests of groovy-money (Coming soon).
+* javamoney-spock: Spock tests that demonstrate basic JavaMoney functionality (without Groovy extensions)
 
