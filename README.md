@@ -21,8 +21,8 @@ Subprojects
 -----------
 * [javamoney-bitcoin](./digital-currency/bitcoin) Bitcoin Support
 * [groovy-money](./groovylang-support/groovy-money) A Groovy Extension Module for Java Money providing operator overloading and more.
-* groovy-demo: Groovy demo and Spock tests of groovy-money (Coming soon).
-* javamoney-spock: Spock tests that demonstrate basic JavaMoney functionality (without Groovy extensions)
+* groovy-demo: Groovy demo and Spock tests of groovy-money (Coming soon)
+* javamoney-spock: Spock tests that demonstrate basic JavaMoney functionality without Groovy extensions (Coming soon)
 
 Authors and Contributors
 ------------------------
