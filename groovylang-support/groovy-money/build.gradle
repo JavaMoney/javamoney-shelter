@@ -10,7 +10,7 @@ repositories {
 }
 
 dependencies {
-    compile 'org.javamoney:moneta:0.9'
+    compile 'org.javamoney:moneta:1.0-RC2'
     compile 'org.codehaus.groovy:groovy:2.4.0'
 
     testCompile("org.spockframework:spock-core:1.0-groovy-2.3-SNAPSHOT") {
