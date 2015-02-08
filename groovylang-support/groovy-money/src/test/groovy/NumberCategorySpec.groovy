@@ -1,6 +1,8 @@
 import com.msgilligan.moneta.NumberCategory
 import org.javamoney.moneta.Money
+import org.javamoney.moneta.spi.DefaultNumberValue
 import spock.lang.Specification
+import spock.lang.Unroll
 import spock.util.mop.ConfineMetaClassChanges
 import spock.util.mop.Use
 
@@ -61,6 +63,34 @@ class NumberCategorySpec extends Specification {
         amount instanceof MonetaryAmount
         amount.number == 0.99
         amount.currency == MonetaryCurrencies.getCurrency("USD")
+    }
+
+    @Unroll
+    def "#sum = #left  + #right (#left.class + nv(#right.class))" () {
+        expect:
+        sum == left + DefaultNumberValue.of(right)
+
+        where:
+        left  | right  | sum
+        10  |     1  |   11
+        10G |     1G |   11
+        10.1G |   0.9G |   11
+        Integer.MAX_VALUE | Integer.MAX_VALUE | ((Long)Integer.MAX_VALUE) + Integer.MAX_VALUE
+        Long.MAX_VALUE | Long.MAX_VALUE | new BigInteger(Long.MAX_VALUE) + new BigInteger(Long.MAX_VALUE)
+    }
+
+    @Unroll
+    def "bad type #left.class throws exception"() {
+        when:
+        left + DefaultNumberValue.of(right)
+
+        then:
+        RuntimeException rte = thrown()
+
+        where:
+        left | right
+        10D  | 0
+        10F  | 0
     }
 
 }

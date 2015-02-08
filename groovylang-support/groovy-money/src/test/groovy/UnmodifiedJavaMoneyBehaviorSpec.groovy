@@ -58,6 +58,8 @@ class UnmodifiedJavaMoneyBehaviorSpec extends Specification {
         sum.class == Integer.class
     }
 
+    // TODO: Add test that demonstrates truncation problem in above case (converting to Integer)
+
     def "Add number values and convert from Integer to new NumberValue" () {
         when: "We add two NumberValues using the default Groovy Number.plus() method"
         NumberValue value1 = Money.of(10, "USD").number
@@ -71,5 +73,4 @@ class UnmodifiedJavaMoneyBehaviorSpec extends Specification {
         sum == 11
         sum.class == DefaultNumberValue.class
     }
-
 }
