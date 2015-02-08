@@ -16,11 +16,10 @@ import javax.money.NumberValue
  *
  * { @code def sum = amount1 + amount2 }
  *
- * IGNORED until we can move to another subproject or setup a class path without
- * the Groovy Extensions.
- *
+ * Perhaps undesirable (buggy?) behavior should be indicated by a failing test, 
+ * but for now the tests are written to "specify" the undersirable behavior with
+ * asserts in the "then" clauses.
  */
-@Ignore
 class UnmodifiedJavaMoneyBehaviorSpec extends Specification {
 
 
