@@ -24,14 +24,19 @@ import org.javamoney.moneta.Money;
  */
 public final class BitcoinCurrencyProvider implements CurrencyProviderSpi {
 
+    final static int bitcoinFractionDigits = 8;
+
     // Not sure what to do here...
     private final CurrencyContext CONTEXT = CurrencyContextBuilder.of("BitcoinCurrencyContextProvider")
                                                 .build();
 
     private Set<CurrencyUnit> bitcoinSet = new HashSet<>();
 
-    public BitcoinCurrencyProvider(){
-        bitcoinSet.add(CurrencyUnitBuilder.of("BTC", CONTEXT).build());
+    public BitcoinCurrencyProvider() {
+        CurrencyUnit btcUnit = CurrencyUnitBuilder.of("BTC", CONTEXT)
+                                    .setDefaultFractionDigits(bitcoinFractionDigits)
+                                    .build();
+        bitcoinSet.add(btcUnit);
         bitcoinSet = Collections.unmodifiableSet(bitcoinSet);
     }
 

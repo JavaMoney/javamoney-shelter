@@ -39,6 +39,7 @@ class BitcoinCurrencyProviderSpec extends Specification {
         then:
         currencies.size() == 1
         btc.getCurrencyCode() == "BTC"
+        btc.getDefaultFractionDigits() == 8
     }
 
     def "returns Bitcoin for BTC query" () {
@@ -50,6 +51,7 @@ class BitcoinCurrencyProviderSpec extends Specification {
         then:
         currencies.size() == 1
         btc.getCurrencyCode() == "BTC"
+        btc.getDefaultFractionDigits() == 8
     }
 
     def "returns empty for USD query" () {
