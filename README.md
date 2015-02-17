@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/JavaMoney/javamoney-shelter.png?label=ready&title=Ready)](https://waffle.io/JavaMoney/javamoney-shelter)
 Welcome to the JavaMoney Shelter
 ================================
 
