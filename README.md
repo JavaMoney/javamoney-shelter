@@ -1,6 +1,8 @@
 Welcome to the JavaMoney Shelter
 ================================
 
+[![Join the chat at https://gitter.im/JavaMoney/javamoney-shelter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/JavaMoney/javamoney-shelter?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 JavaMoney-shelter is a sandbox or "sanctuary" for new ideas and modules to be adopted, e.g. via Adopt-a-JSR or similar programs.
 The shelter also acts as incubator module for testing out new features or modules before they may enter the official javamoney library.
 This allows to gain experience and make components error prone and performant and enables a discussion of new features with a broader community.
