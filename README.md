@@ -1,6 +1,7 @@
 Welcome to the JavaMoney Shelter
 ================================
 
+[![License](http://img.shields.io/badge/license-Apache2-red.svg)](http://opensource.org/licenses/apache-2.0) 
 [![Join the chat at https://gitter.im/JavaMoney/javamoney-shelter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/JavaMoney/javamoney-shelter?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 JavaMoney-shelter is a sandbox or "sanctuary" for new ideas and modules to be adopted, e.g. via Adopt-a-JSR or similar programs.
