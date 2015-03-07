@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013, 205, Werner Keil and others by the @author tag.
+ * Copyright (c) 2013, 2015, Werner Keil and others by the @author tag.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
