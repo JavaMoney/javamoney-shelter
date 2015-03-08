@@ -169,12 +169,6 @@ public class BitcoinDeRateProvider implements ExchangeRateProvider {
     }
 
 	@Override
-	public ProviderContext getProviderContext() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public boolean isAvailable(String baseCode, String termCode) {
 		// TODO Auto-generated method stub
 		return false;
@@ -223,5 +217,11 @@ public class BitcoinDeRateProvider implements ExchangeRateProvider {
 	public boolean isAvailable(ConversionQuery arg0) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public ProviderContext getContext() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
