@@ -1,0 +1,21 @@
+allprojects {
+    apply plugin: 'idea'
+}
+
+subprojects {
+    apply plugin: 'groovy'
+
+    repositories {
+        jcenter()
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots/'}
+    }
+
+    dependencies {
+        compile 'org.javamoney:moneta:1.0-RC2'
+        compile 'org.codehaus.groovy:groovy:2.4.1'
+
+        testCompile("org.spockframework:spock-core:1.0-groovy-2.4") {
+            exclude module: "groovy-all"
+        }
+    }
+}
