@@ -16,8 +16,8 @@ import javax.money.NumberValue
  *
  * { @code def sum = amount1 + amount2 }
  *
- * Perhaps undesirable (buggy?) behavior should be indicated by a failing test, 
- * but for now the tests are written to "specify" the undersirable behavior with
+ * Perhaps undesirable behavior should be indicated by a failing test,
+ * but for now the tests are written to "specify" the undesirable behavior with
  * asserts in the "then" clauses.
  */
 class UnmodifiedJavaMoneyBehaviorSpec extends Specification {
@@ -57,14 +57,14 @@ class UnmodifiedJavaMoneyBehaviorSpec extends Specification {
         sum.class == Integer.class
     }
 
-    def "Add number values using Groovy + operator gives accurate result" () {
+    def "Add number values using Groovy + operator incorrectly rounds to integer result" () {
         when: "We add two NumberValues using the '+' operator and the Groovy Number.plus() method"
         NumberValue value1 = Money.of(10, "USD").number
         NumberValue value2 = Money.of(0.99, "USD").number
         def sum = value1 + value2
 
-        then: "We get a correct answer"
-        sum == 10.99
+        then: "We get an incorrect answer - rounded to Integer"
+        sum == 10.00    // TODO: Fix this with either upstream changes and/or Groovy category
     }
 
     def "Add number values and convert from Integer to new NumberValue" () {
