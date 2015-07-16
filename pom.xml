@@ -10,7 +10,7 @@
 	<parent>
 		<groupId>org.javamoney</groupId>
 		<artifactId>javamoney-parent</artifactId>
-		<version>1.0-RC3</version>
+		<version>1.0</version>
 	</parent>
 	<url>http://javamoney.github.io/shelter.html</url>
 	<inceptionYear>2013</inceptionYear>
@@ -35,5 +35,6 @@
 	
 	<modules>
 		<module>digital-currency</module>
+		<module>lib-incubator</module>
 	</modules>
 </project>
