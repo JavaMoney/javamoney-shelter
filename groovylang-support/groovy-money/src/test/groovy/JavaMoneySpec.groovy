@@ -14,7 +14,7 @@ import spock.util.mop.Use
 
 import javax.money.CurrencyUnit
 import javax.money.MonetaryAmount
-import javax.money.MonetaryCurrencies
+import javax.money.Monetary
 import javax.money.NumberValue
 
 /**
@@ -33,7 +33,7 @@ class JavaMoneySpec extends Specification {
 
     def "get currency unit" () {
         when:
-        CurrencyUnit usDollar = MonetaryCurrencies.getCurrency("USD")
+        CurrencyUnit usDollar = Monetary.getCurrency("USD")
 
         then:
         usDollar.currencyCode == "USD"

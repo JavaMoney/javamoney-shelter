@@ -15,7 +15,7 @@
 package org.javamoney.shelter.bitcoin.provider;
 
 import javax.money.CurrencyUnit;
-import javax.money.MonetaryCurrencies;
+import javax.money.Monetary;
 import javax.money.MonetaryException;
 import javax.money.convert.ExchangeRate;
 import org.javamoney.moneta.CurrencyUnitBuilder;
@@ -31,13 +31,13 @@ public class BitcoinDeConversionDemo {
     	//MtGoxV2ConversionProvider provider = new MtGoxV2ConversionProvider("USD");
     	BitcoinDeRateProvider provider = new BitcoinDeRateProvider();
         provider.loadRate("USD", true);
-        ExchangeRate rate = provider.getExchangeRate(MonetaryCurrencies.getCurrency("USD"), btc);
+        ExchangeRate rate = provider.getExchangeRate(Monetary.getCurrency("USD"), btc);
         System.out.println("Rate: " + rate);
         
-        rate = provider.getExchangeRate(MonetaryCurrencies.getCurrency("EUR"), btc);
+        rate = provider.getExchangeRate(Monetary.getCurrency("EUR"), btc);
         System.out.println("Rate2: " + rate);
         
-        rate = provider.getExchangeRate(MonetaryCurrencies.getCurrency("CHF"), btc);
+        rate = provider.getExchangeRate(Monetary.getCurrency("CHF"), btc);
         System.out.println("Rate3: " + rate);
     }
 }

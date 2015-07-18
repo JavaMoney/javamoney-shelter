@@ -6,7 +6,7 @@ import org.javamoney.moneta.spi.DefaultNumberValue
 
 import javax.money.CurrencyUnit
 import javax.money.MonetaryAmount
-import javax.money.MonetaryCurrencies
+import javax.money.Monetary
 import javax.money.NumberValue
 
 /**
@@ -35,7 +35,7 @@ class NumberCategory {
      * @throws UnknownCurrencyException when currency code not found
      */
     MonetaryAmount get(String name) {
-        CurrencyUnit currency = MonetaryCurrencies.getCurrency(name.toUpperCase())
+        CurrencyUnit currency = Monetary.getCurrency(name.toUpperCase())
         return Money.of(this, currency)
     }
 

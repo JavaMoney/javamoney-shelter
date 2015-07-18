@@ -9,7 +9,7 @@ import javax.money.CurrencyQuery
 import javax.money.CurrencyQueryBuilder
 import javax.money.CurrencyUnit
 import javax.money.MonetaryAmount
-import javax.money.MonetaryCurrencies
+import javax.money.Monetary
 import javax.money.UnknownCurrencyException
 
 /**
@@ -63,9 +63,9 @@ class BitcoinCurrencyProviderSpec extends Specification {
         currencies.size() == 0
     }
 
-    def "BTC can't be found via MonetaryCurrencies" () {
+    def "BTC can't be found via Monetary" () {
         when: "We try to get currency 'BTC' when BitcoinCurrencyProvider is not registered"
-        CurrencyUnit btc = MonetaryCurrencies.getCurrency("BTC")
+        CurrencyUnit btc = Monetary.getCurrency("BTC")
 
         then: "An UnknownCurrencyException is thrown"
         UnknownCurrencyException e = thrown()

@@ -8,7 +8,7 @@ import spock.util.mop.Use
 
 import javax.money.CurrencyUnit
 import javax.money.MonetaryAmount
-import javax.money.MonetaryCurrencies
+import javax.money.Monetary
 
 
 /**
@@ -23,7 +23,7 @@ class NumberCategorySpec extends Specification {
         then:
         aBuck instanceof MonetaryAmount
         aBuck.number == 1
-        aBuck.currency == MonetaryCurrencies.getCurrency("USD")
+        aBuck.currency == Monetary.getCurrency("USD")
     }
 
     def "can make EUR"() {
@@ -33,7 +33,7 @@ class NumberCategorySpec extends Specification {
         then:
         amount instanceof MonetaryAmount
         amount.number == 1
-        amount.currency == MonetaryCurrencies.getCurrency("EUR")
+        amount.currency == Monetary.getCurrency("EUR")
     }
 
     def "can make any supported currency via propertyMissing"() {
@@ -43,7 +43,7 @@ class NumberCategorySpec extends Specification {
         then:
         amount instanceof MonetaryAmount
         amount.number == 1
-        amount.currency == MonetaryCurrencies.getCurrency("JPY")
+        amount.currency == Monetary.getCurrency("JPY")
     }
 
     def "Undefined currency should throw UnknownCurrencyException"() {
@@ -62,7 +62,7 @@ class NumberCategorySpec extends Specification {
         then:
         amount instanceof MonetaryAmount
         amount.number == 0.99
-        amount.currency == MonetaryCurrencies.getCurrency("USD")
+        amount.currency == Monetary.getCurrency("USD")
     }
 
     @Unroll
