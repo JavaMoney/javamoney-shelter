@@ -37,7 +37,7 @@ import org.codehaus.jackson.JsonNode;
 import org.codehaus.jackson.map.ObjectMapper;
 // TODO consider switching to JSR 353
 
-import org.javamoney.moneta.ExchangeRateBuilder;
+import org.javamoney.moneta.convert.ExchangeRateBuilder;
 import org.javamoney.moneta.spi.DefaultNumberValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

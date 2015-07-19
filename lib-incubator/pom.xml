@@ -4,14 +4,14 @@
 	<parent>
 		<groupId>org.javamoney.shelter</groupId>
 		<artifactId>javamoney-shelter</artifactId>
-		<version>0.5</version>
+		<version>0.6-SNAPSHOT</version>
 	</parent>
 	<artifactId>javamoney-lib-incubator</artifactId>
 	<name>JavaMoney Library Incubator</name>
 
 	<properties>
 		<jsr.version>1.0</jsr.version>
-		<ri.version>1.0</ri.version>
+		<ri.version>1.0.1-SNAPSHOT</ri.version>
 		<!-- dependency versions -->
 		<testng.version>6.8.5</testng.version>
 		<additionalparam>-Xdoclint:none</additionalparam>

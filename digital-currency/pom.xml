@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.javamoney.shelter</groupId>
 		<artifactId>javamoney-shelter</artifactId>
-		<version>0.5</version>
+		<version>0.6-SNAPSHOT</version>
 	</parent>
 	<artifactId>javamoney-digital-currency</artifactId>
 	<packaging>pom</packaging>

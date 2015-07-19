@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.javamoney.shelter</groupId>
 		<artifactId>javamoney-digital-currency</artifactId>
-		<version>0.5</version>
+		<version>0.6-SNAPSHOT</version>
 	</parent>
 	<artifactId>javamoney-bitcoin</artifactId>
 	<name>JavaMoney Bitcoin</name>
@@ -133,7 +133,6 @@
 			<version>1.7.10</version>
 		</dependency>
 
-
 		<dependency>
 			<groupId>javax.enterprise</groupId>
 			<artifactId>cdi-api</artifactId>
@@ -149,7 +148,7 @@
 		<dependency>
 			<groupId>org.javamoney</groupId>
 			<artifactId>moneta</artifactId>
-			<version>${jsr.version}</version>
+			<version>${javamoney.version}</version>
 			<scope>compile</scope>
 		</dependency>
 
