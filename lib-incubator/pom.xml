@@ -11,7 +11,7 @@
 
 	<properties>
 		<jsr.version>1.0</jsr.version>
-		<ri.version>1.0.1-SNAPSHOT</ri.version>
+		<ri.version>1.0</ri.version>
 		<!-- dependency versions -->
 		<testng.version>6.8.5</testng.version>
 		<additionalparam>-Xdoclint:none</additionalparam>

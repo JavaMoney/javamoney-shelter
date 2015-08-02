@@ -16,13 +16,15 @@
 	<inceptionYear>2013</inceptionYear>
 
 	<properties>
+		<jdk.version>1.7</jdk.version>
 		<basedir>.</basedir>
 		<!-- Dependency versions -->
 		<junit.version>4.8.2</junit.version>
 		<slf4j.version>1.6.1</slf4j.version>
 		<!-- JSR versions -->
 		<jsr.version>1.0</jsr.version>
-		<javamoney.version>1.0.1-SNAPSHOT</javamoney.version>
+		<ri.version>1.0</ri.version>
+		<javamoney.version>1.0</javamoney.version>
 	</properties>
 	
 	<repositories>
