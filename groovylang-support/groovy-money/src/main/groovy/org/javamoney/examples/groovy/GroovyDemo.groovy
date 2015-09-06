@@ -39,10 +39,13 @@ public class GroovyDemo {
         def value1 = Money.of(10, "USD")
         def value2 = Money.of(0.99, "USD")
 
-        def sum = value1 + value2               // Add MonetaryAmounts with '+' operator
+        def sum = value1 + value2       // Add MonetaryAmounts with '+' operator
         println "${value1} + ${value2} = ${sum}"
 		
-		def dif = value1 - value2				// Subtract MonetaryAmounts with '-' operator
+		def dif = value1 - value2		// Subtract MonetaryAmounts with '-' operator
 		println "${value1} - ${value2} = ${dif}"
+		
+		def value3 = Money.of(1, "CHF")
+//		def sum2 = value1 + value3 		// This won't work (must be of same currency)
     }
 }
