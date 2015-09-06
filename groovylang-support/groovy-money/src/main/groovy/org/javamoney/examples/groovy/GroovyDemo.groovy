@@ -20,10 +20,10 @@ import org.javamoney.groovy.MonetaryAmountCategory
 
 /**
  * Simple Demo of using Moneta from Groovy
- *
+ * <p>
  * Example of arithmetic using MonetaryAmounts with operator overloading added
  * though Groovy Categories and the mixin() method
- *
+ * </p>
  * Note: (For now) most of the action is in the Spock tests.
  *
  * @author Sean Gilligan
