@@ -71,5 +71,21 @@ class NumberCategory {
         return sum
     }
 
-
+	Number minus(NumberValue right) {
+		BigDecimal lbd
+		if (this instanceof BigDecimal) {
+			lbd = this
+		} else if (this instanceof BigInteger) {
+			lbd = new BigDecimal((BigInteger) this)
+		} else if (this instanceof Long) {
+			lbd = new BigDecimal(((Long) this))
+		} else if (this instanceof Integer) {
+			lbd = new BigDecimal(((Integer) this))
+		} else  {
+			throw new RuntimeException("Don't use plus(NumberValue) with type" + this.class)
+		}
+		BigDecimal rbd = (BigDecimal)right.numberValueExact(BigDecimal.class)
+		BigDecimal sum = lbd.subtract(rbd)
+		return sum
+	}
 }
