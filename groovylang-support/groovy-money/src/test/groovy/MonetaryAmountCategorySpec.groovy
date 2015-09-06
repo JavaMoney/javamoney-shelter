@@ -1,5 +1,5 @@
-import com.msgilligan.moneta.MonetaryAmountCategory
-import com.msgilligan.moneta.NumberValueCategory
+import org.javamoney.groovy.MonetaryAmountCategory
+import org.javamoney.groovy.NumberValueCategory
 import org.javamoney.moneta.Money
 import spock.lang.Specification
 import spock.util.mop.Use

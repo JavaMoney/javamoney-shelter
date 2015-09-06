@@ -1,4 +1,4 @@
-import com.msgilligan.moneta.NumberCategory
+import org.javamoney.groovy.NumberCategory
 import org.javamoney.moneta.Money
 import org.javamoney.moneta.spi.DefaultNumberValue
 import spock.lang.Specification
