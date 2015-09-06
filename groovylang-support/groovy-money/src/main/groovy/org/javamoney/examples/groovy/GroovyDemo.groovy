@@ -42,7 +42,7 @@ public class GroovyDemo {
         def sum = value1 + value2               // Add MonetaryAmounts with '+' operator
         println "${value1} + ${value2} = ${sum}"
 		
-		def dif = value1 - value2
+		def dif = value1 - value2				// Subtract MonetaryAmounts with '-' operator
 		println "${value1} - ${value2} = ${dif}"
     }
 }
