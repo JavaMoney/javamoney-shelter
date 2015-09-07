@@ -7,6 +7,7 @@ This allows to gain experience and make components error prone and performant an
 
 [Gimme Shelter](https://www.youtube.com/watch?v=Jb-JZPmiEOI)
 
+Dependency for **Maven** modules (similar for Gradle where applicable)
 ```xml
 <dependency>
   <groupId>org.javamoney.shelter</groupId>
