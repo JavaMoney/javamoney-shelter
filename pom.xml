@@ -27,13 +27,29 @@
 		<javamoney.version>1.0</javamoney.version>
 	</properties>
 	
-	<repositories>
-		<repository>
-			<id>JCenter</id>
-			<name>JFrog BinTray JCenter</name>
-			<url>http://jcenter.bintray.com/</url>
-		</repository>
-	</repositories>
+	<!-- Additional repositories -->
+    	<!-- Helps to resolve Parent POM -->
+    	<repositories> 
+        	<repository> 
+           		<id>jcenter</id>
+           		<name>JCenter</name>
+           		<url>http://jcenter.bintray.com</url> 
+			</repository> 
+	        <repository>
+	            <snapshots>
+	                <enabled>true</enabled>
+	            </snapshots>
+	            <id>central</id>
+	            <name>libs-release</name>
+	            <url>http://oss.jfrog.org/artifactory/libs-release</url>
+	        </repository>
+	        <repository>
+	            <snapshots />
+	            <id>snapshots</id>
+	            <name>libs-snapshot</name>
+	            <url>http://oss.jfrog.org/artifactory/libs-snapshot</url>
+	        </repository>
+    	</repositories>
 	
 	<modules>
 		<module>digital-currency</module>
