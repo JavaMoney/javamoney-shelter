@@ -35,13 +35,23 @@ class MonetaryAmountCategory {
         return this.add(right)
     }
 	
-	/**
-	 * MonetaryAmount has subtract() not minus(), let's remedy that
-	 *
-	 * @param right right operator
-	 * @return sum as a MonetaryAmount
-	 */
-	MonetaryAmount minus(MonetaryAmount right) {
-		return this.subtract(right)
-	}
+    /**
+     * MonetaryAmount has subtract() not minus(), let's remedy that
+     *
+     * @param right right operator
+     * @return sum as a MonetaryAmount
+     */
+    MonetaryAmount minus(MonetaryAmount right) {
+	return this.subtract(right)
+    }
+    
+    /**
+     * MonetaryAmount has divide() not div(), let's remedy that
+     *
+     * @param right right operator
+     * @return sum as a MonetaryAmount
+     */
+    MonetaryAmount div(MonetaryAmount right) {
+	return this.divide(right)
+    }
 }
