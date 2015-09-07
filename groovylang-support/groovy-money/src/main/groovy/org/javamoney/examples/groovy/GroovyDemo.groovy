@@ -47,5 +47,11 @@ public class GroovyDemo {
 		
 		def value3 = Money.of(1, "CHF")
 //		def sum2 = value1 + value3 		// This won't work (must be of same currency)
+		
+		def mult = value1 * 3			// Multiply MonetaryAmount by 3 '/' operator
+		println "${value1} * 3 = ${mult}"
+		
+		def div = value1 / 2			// Divide MonetaryAmount by 2 '/' operator
+		println "${value1} / 2 = ${div}"
     }
 }

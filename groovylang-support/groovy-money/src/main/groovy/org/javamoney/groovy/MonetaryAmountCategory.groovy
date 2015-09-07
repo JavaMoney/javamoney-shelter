@@ -39,7 +39,7 @@ class MonetaryAmountCategory {
      * MonetaryAmount has subtract() not minus(), let's remedy that
      *
      * @param right right operator
-     * @return sum as a MonetaryAmount
+     * @return difference as a MonetaryAmount
      */
     MonetaryAmount minus(MonetaryAmount right) {
 	return this.subtract(right)
@@ -49,9 +49,9 @@ class MonetaryAmountCategory {
      * MonetaryAmount has divide() not div(), let's remedy that
      *
      * @param right right operator
-     * @return sum as a MonetaryAmount
+     * @return division as a MonetaryAmount
      */
-    MonetaryAmount div(MonetaryAmount right) {
+    MonetaryAmount div(Number right) {
 	return this.divide(right)
     }
 }
