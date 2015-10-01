@@ -20,6 +20,8 @@ import javax.money.MonetaryAmount
 
 /**
  * Category to add methods to MonetaryAmount to support operator overloading.
+ * @author Sean Gilligan
+ * @author Werner Werner Keil
  */
 @CompileStatic
 @Category(MonetaryAmount)
