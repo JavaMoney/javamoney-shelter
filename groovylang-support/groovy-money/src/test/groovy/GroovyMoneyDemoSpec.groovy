@@ -45,7 +45,7 @@ class GroovyMoneyDemoSpec extends Specification {
 		def diff = 10.eur - 1.99.eur
 
 		then:
-		diff.number == 8.01
+		diff.number == 8.00
 		diff.currency.currencyCode == "EUR"
 		diff instanceof MonetaryAmount
 		diff.class == Money.class
