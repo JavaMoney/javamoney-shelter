@@ -44,7 +44,7 @@ class UnmodifiedJavaMoneyBehaviorSpec extends Specification {
         def sum = amount1 + amount2
 
         then: "We get a MissingMethodException because JavaMoney uses add() not plus()"
-        groovy.lang.MissingMethodException e = thrown()
+        MissingMethodException e = thrown()
         e.message != null
     }
 
