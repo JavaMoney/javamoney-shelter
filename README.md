@@ -5,7 +5,7 @@ JavaMoney-shelter is a sandbox or "sanctuary" for new ideas and modules to be ad
 The shelter also acts as incubator module for testing out new features or modules before they may enter the official javamoney library.
 This allows to gain experience and make components error prone and performant and enables a discussion of new features with a broader community.
 
-[Gimme Shelter](https://www.youtube.com/watch?v=Jb-JZPmiEOI)
+[Gimme Shelter](https://youtu.be/6yGFuX2KDQs)
 
 Dependency for **Maven** modules (similar for Gradle where applicable)
 ```xml
