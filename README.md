@@ -36,4 +36,4 @@ Waffle.io
 -----------
 [![Stories in Ready](https://badge.waffle.io/JavaMoney/javamoney-shelter.png?label=ready&title=Ready)](https://waffle.io/JavaMoney/javamoney-shelter)
 
-[Presentation Bitcoin, Payment Instrument or Object of Speculation? from Werner Keil](http://www.slideshare.net/keilw/bitcoin-payment-instrument-or-object-of-speculation-smwhh-2014)
+[Presentation Bitcoin, Payment Instrument or Object of Speculation? by Werner Keil](http://www.slideshare.net/keilw/bitcoin-payment-instrument-or-object-of-speculation-smwhh-2014)
