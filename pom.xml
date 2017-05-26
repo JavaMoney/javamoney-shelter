@@ -53,6 +53,7 @@
 	
 	<modules>
 		<module>digital-currency</module>
+		<module>kotlin-support</module>
 		<module>lib-incubator</module>
 	</modules>
 </project>
