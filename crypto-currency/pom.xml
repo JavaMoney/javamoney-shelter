@@ -6,10 +6,10 @@
 		<artifactId>javamoney-shelter</artifactId>
 		<version>0.6-SNAPSHOT</version>
 	</parent>
-	<artifactId>javamoney-digital-currency</artifactId>
+	<artifactId>javamoney-crypto-currency</artifactId>
 	<packaging>pom</packaging>
-	<name>JavaMoney Digital Currencies</name>
-	<description>Digital Currency Support</description>
+	<name>JavaMoney Crypto Currencies</name>
+	<description>Crypto Currency Support</description>
 
 	<modules>
 		<module>bitcoin</module>
