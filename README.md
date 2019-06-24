@@ -26,7 +26,7 @@ Subprojects
 Retired
 -------
 Currently the following modules are retired (or archived, this means they are not actively maintained.
-They even may not compile):
+Some of them may not even compile any more):
 * [**Formatting**](retired/format) provides an extendble formatting library that allows to define complex formatters, that can be configured in arbitrary ways using `LocalizationStyle` instances.
 Also available is a flexible Builder for creating arbitrary complex formatters and parsers based on an ordered set of arbitrary tokens.
 * [**javamoney-all**](retired/javamoney-all) provides a pom that imports everything you need (API, RI and the released JavaMoney libraries).
