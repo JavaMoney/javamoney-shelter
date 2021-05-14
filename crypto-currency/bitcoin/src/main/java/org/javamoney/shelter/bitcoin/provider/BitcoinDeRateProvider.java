@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013, 2015, Werner Keil and others by the @author tag.
+ * Copyright (c) 2013, 2021, Werner Keil and others by the @author tag.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -33,14 +33,15 @@ import javax.money.convert.ExchangeRateProvider;
 import javax.money.convert.ProviderContext;
 import javax.money.convert.RateType;
 
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.map.ObjectMapper;
-// TODO consider switching to JSR 353
 
 import org.javamoney.moneta.ExchangeRateBuilder;
 import org.javamoney.moneta.spi.DefaultNumberValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+//TODO consider switching to Jakarta JSON Binding
 
 import java.text.NumberFormat;
 import java.text.ParseException;
@@ -146,16 +147,16 @@ public class BitcoinDeRateProvider implements ExchangeRateProvider {
 				throw new MonetaryException("Lookup Error", e);
 			}
 	        LOGGER.debug("Result : " +root.path("result"));
-	        if (verbose) System.out.println( "Result : " +root.path("result").getTextValue());
+	        if (verbose) System.out.println( "Result : " +root.path("result").textValue());
 	        
 	        JsonNode lastNode = root.findValue("last");
-	        String value = lastNode.path("value").getTextValue();
+	        String value = lastNode.path("value").textValue();
 	        try {
 				currentRates.put(curCode, NumberFormat.getInstance(Locale.ENGLISH).parse(value));
 			} catch (ParseException e) {
 				LOGGER.warn("Warning", e);
 			}
-	        if (verbose) System.out.println( "display_short : " +lastNode.path("rate_weighted").getTextValue());
+	        if (verbose) System.out.println( "display_short : " +lastNode.path("rate_weighted").textValue());
     	} else {
     		throw new UnknownCurrencyException(curCode);
     	}
