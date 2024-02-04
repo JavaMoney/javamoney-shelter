@@ -10,7 +10,7 @@
 	<parent>
 		<groupId>org.javamoney</groupId>
 		<artifactId>javamoney-parent</artifactId>
-		<version>1.0</version>
+		<version>1.4</version>
 	</parent>
 	<url>http://javamoney.github.io/shelter.html</url>
 	<inceptionYear>2013</inceptionYear>
@@ -23,7 +23,7 @@
 		<slf4j.version>1.6.1</slf4j.version>
 		<!-- JSR versions -->
 		<jsr.version>1.1</jsr.version>
-		<ri.version>1.4.3-SNAPSHOT</ri.version>
+		<ri.version>1.4.4</ri.version>
 		<javamoney.version>1.1</javamoney.version>
 		<jackson.version>2.11.2</jackson.version>
 	</properties>
